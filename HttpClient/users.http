@@ -1,0 +1,22 @@
+### Find user
+GET {{local_url}}api/users/1
+Content-Type: application/json
+Accept: application/json
+Authorization:{{token}}
+
+{
+    "name": "hamza",
+    "password": "12345678",
+    "email": "test1@example.com"
+}
+
+### Get users list
+GET {{local_url}}api/users
+Content-Type: application/json
+Accept: application/json
+Authorization:{{token}}
+
+{
+    "email": "test1@example.com",
+    "password": "12345678"
+}
