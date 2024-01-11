@@ -47,8 +47,4 @@ process.on('uncaughtException', error => {
 })
 
 
-// app.listen(port, host, () => {
-//     console.log(`Example app listening on port http://127.0.0.1:${port}`)
-// })
-
 module.exports= {app};
