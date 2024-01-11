@@ -9,11 +9,6 @@ It is pre-configured nodejs project  with jest testing so develop can quickly cl
 - [@hamzaaslam](https://github.com/hamzaaslam-cs)
 
 
-# nodejs-boilerplate
-
-It is pre-configured nodejs project  with jest testing so develop can quickly clone and start wokring on business logic of the project.
-
-
 ## Installation
 
 Install dependencies with npm
