@@ -62,7 +62,6 @@ const forgetPassword = async (email) => {
     const token = jwt.sign({email: email}, jwtConfig.SECRET, {
         expiresIn: jwtConfig.EXPIRE_IN,
     });
-
     let data = {
         pageTitle: 'Forget Password',
         token: token,
@@ -70,7 +69,6 @@ const forgetPassword = async (email) => {
     };
 
     sendForgotPasswordEmail(email, data).then(res => {
-        logger.info(res);
     }).catch(e => {
         logger.error(e);
     });

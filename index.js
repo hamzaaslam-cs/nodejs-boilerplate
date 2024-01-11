@@ -1,4 +1,4 @@
-require('dotenv').config({path: '.env'});
+require("./utils/loadEnv");
 require("./globals");
 const server = require("./config/server");
 const express = require("express");

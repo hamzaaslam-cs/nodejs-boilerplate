@@ -16,7 +16,7 @@ Accept: application/json
 
 {
   "email": "test1@example.com",
-  "password": "1234567890"
+  "password": "12345678"
 }
 
 
@@ -32,5 +32,5 @@ Accept: application/json
 
 {
   "password": "12345678",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxQGV4YW1wbGUuY29tIiwiaWF0IjoxNzA0MTk2NDA2LCJleHAiOjE3MDQyMDAwMDZ9.M7Dv3sMo_MslXbNoJVv_406SGOWIFNeQo3HFuruAQ8E"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxQGV4YW1wbGUuY29tIiwiaWF0IjoxNzA0ODIyMTYyLCJleHAiOjE3MDQ5MDg1NjJ9.vtCg3YpzU9L1dTqlwNo_bZE-y5iwMsnxNM6ZUpY5NtY"
 }
