@@ -1,6 +1,6 @@
 require("./utils/loadEnv");
 require("./globals");
-const server = require("./config/server");
+// const server = require("./config/server");
 const express = require("express");
 require("./providers/database-provider");
 const router = require("./router/index");
@@ -11,8 +11,8 @@ const app = express();
 const {engine} = require('express-handlebars');
 const cors = require('cors')
 
-const port = server.SERVER_PORT;
-const host = server.SERVER_HOST;
+// const port = server.SERVER_PORT;
+// const host = server.SERVER_HOST;
 
 
 app.engine('.hbs', engine({extname: '.hbs'}));
@@ -47,8 +47,8 @@ process.on('uncaughtException', error => {
 })
 
 
-app.listen(port, host, () => {
-    console.log(`Example app listening on port http://127.0.0.1:${port}`)
-})
+// app.listen(port, host, () => {
+//     console.log(`Example app listening on port http://127.0.0.1:${port}`)
+// })
 
-module.exports = {app};
+module.exports= {app};
