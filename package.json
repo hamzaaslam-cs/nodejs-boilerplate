@@ -7,7 +7,7 @@
     "test": "set NODE_ENV=test&& jest --detectOpenHandles",
     "dev": "nodemon server.js"
   },
-  "author": "",
+  "author": "Hamza Aslam",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
