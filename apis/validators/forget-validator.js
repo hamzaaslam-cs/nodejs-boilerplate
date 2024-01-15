@@ -6,10 +6,10 @@ const forgetValidator = async (req, res, next) => {
             email: Joi.string().email().required()
         })
         req.validated = await schema.validateAsync(req.params);
+        next();
     } catch (e) {
         next(e);
     }
-    next();
 }
 
 module.exports = {forgetValidator};

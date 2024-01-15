@@ -4,7 +4,6 @@ const asyncWrap = (fn) => {
         try {
             await fn(req, res, next);
         } catch (err) {
-            logger.error(err);
             next(err);
         }
     };

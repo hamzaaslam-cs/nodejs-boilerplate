@@ -15,10 +15,7 @@ const infoTransport = new DailyRotateFile({
     maxSize: '20m',
     maxFiles: '14d',
     level: 'info',
-    format: combine(
-        timestamp(),
-        json()
-    ),
+    format: combine(timestamp(), json()),
 });
 
 const errorTransport = new DailyRotateFile({
@@ -28,10 +25,7 @@ const errorTransport = new DailyRotateFile({
     maxSize: '20m',
     maxFiles: '14d',
     level: 'info',
-    format: combine(
-        timestamp(),
-        json()
-    ),
+    format: combine(timestamp(), json()),
 });
 
 const httpTransport = new DailyRotateFile({
@@ -41,30 +35,20 @@ const httpTransport = new DailyRotateFile({
     maxSize: '20m',
     maxFiles: '14d',
     level: 'http',
-    format: combine(
-        timestamp(),
-        json()
-    ),
+    format: combine(timestamp(), json()),
 });
 
+let logger = null;
 
-const logger = winston.createLogger({
-    transports: [
-        infoTransport,
-        errorTransport,
-        httpTransport
-    ]
-});
-
-
-//
-// If we're not in production then log to the `console` with the format:
-// `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
-//
 if (process.env.NODE_ENV !== 'production') {
-    logger.add(new winston.transports.Console({
-        format: winston.format.simple(),
-    }));
+    logger = winston.createLogger({
+        transports: [new winston.transports.Console()]
+    });
+} else {
+    logger = winston.createLogger({
+        transports: [infoTransport, errorTransport, httpTransport]
+    });
 }
+
 
 module.exports = {logger};

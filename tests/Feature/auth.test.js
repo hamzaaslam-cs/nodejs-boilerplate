@@ -1,12 +1,8 @@
-const {app} = require('../index')
+const {app} = require('../../index')
 const request = require('supertest')
-const User = require("../models/User")
-
+const User = require("../../models/User")
 
 describe('Register End Point', () => {
-
-
-
 
     it('Resetting tables', async () => {
         await User.sync({force: true});
@@ -16,9 +12,7 @@ describe('Register End Point', () => {
         const res = await request(app)
             .post('/api/auth/register')
             .send({
-                name: "hamza",
-                password: "12345678",
-                email: "test1@example.com"
+                name: "hamza", password: "12345678", email: "test1@example.com"
             })
         expect(res.statusCode).toEqual(200)
     })
@@ -27,15 +21,12 @@ describe('Register End Point', () => {
         const res = await request(app)
             .post('/api/auth/register')
             .send({
-                name: "hamza",
-                password: "12345678",
-                email: "test1@example.com"
+                name: "hamza", password: "12345678", email: "test1@example.com"
             })
         expect(res.statusCode).toEqual(400)
     })
 
 })
-
 
 describe('Login End Point', () => {
 
@@ -43,8 +34,7 @@ describe('Login End Point', () => {
         const res = await request(app)
             .post('/api/auth/login')
             .send({
-                email: "test1@example.com",
-                password: "12345678"
+                email: "test1@example.com", password: "12345678"
             })
         expect(res.statusCode).toEqual(200)
     })
@@ -53,8 +43,7 @@ describe('Login End Point', () => {
         const res = await request(app)
             .post('/api/auth/login')
             .send({
-                email: "test1@example.com",
-                password: "1234567893"
+                email: "test1@example.com", password: "1234567893"
             })
         expect(res.statusCode).toEqual(500)
     })

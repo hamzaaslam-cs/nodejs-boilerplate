@@ -7,10 +7,11 @@ const loginValidator = async (req, res, next) => {
             email: Joi.string().email().required()
         })
         req.validated = await schema.validateAsync(req.body);
+        next();
     } catch (e) {
+        // console.log(e.message);
         next(e);
     }
-    next();
 }
 
 module.exports = {loginValidator};

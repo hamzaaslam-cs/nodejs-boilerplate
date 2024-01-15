@@ -19,10 +19,10 @@ const registrationValidator = async (req, res, next) => {
         })
 
         req.validated = await schema.validateAsync(req.body);
+        next();
     } catch (e) {
         next(e);
     }
-    next();
 }
 
 module.exports = {registrationValidator};

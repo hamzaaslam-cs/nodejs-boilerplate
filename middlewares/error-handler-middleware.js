@@ -13,7 +13,6 @@ const errorhandler = (err, req, res, next) => {
         } else {
             logger.error(err.stack);
         }
-
         return res.status(statusCode).send(getEmptyResponse(false, err.message));
     }
     next()
