@@ -1,5 +1,3 @@
-const {app} = require("../../index");
-const request = require("supertest");
 const {loginValidator} = require("../../apis/validators/login-validator");
 const {ValidationError} = require("joi");
 

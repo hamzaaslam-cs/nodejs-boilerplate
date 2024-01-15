@@ -15,6 +15,11 @@ describe('Register End Point', () => {
                 name: "hamza", password: "12345678", email: "test1@example.com"
             })
         expect(res.statusCode).toEqual(200)
+        expect(res.body.data).toHaveProperty('id')
+        expect(res.body.data).toHaveProperty('name')
+        expect(res.body.data).toHaveProperty('email')
+        expect(res.body.data).toHaveProperty('token')
+
     })
 
     it('Trying to register user with already used email', async () => {
@@ -36,7 +41,11 @@ describe('Login End Point', () => {
             .send({
                 email: "test1@example.com", password: "12345678"
             })
-        expect(res.statusCode).toEqual(200)
+        expect(res.statusCode).toEqual(200);
+        expect(res.body.data).toHaveProperty('id')
+        expect(res.body.data).toHaveProperty('name')
+        expect(res.body.data).toHaveProperty('email')
+        expect(res.body.data).toHaveProperty('token')
     })
 
     it('Trying to login user with wrong password', async () => {
