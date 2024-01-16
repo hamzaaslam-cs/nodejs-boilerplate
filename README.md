@@ -20,9 +20,9 @@ Create .env file in the root of project
 
 Craete test.env file to create seperate environment for testing
 
-Project is by default configured Database is mysql
-and default configured Mail Driver is  mailtrap
-change configration according to your need in either env of in /config directory
+Project is by default configured with Database MySql
+and Mail Driver Mailtrap
+change configrations according to your need in either env or in /config directory
 
 ```bash
 
