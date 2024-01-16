@@ -54,7 +54,7 @@ describe('Login End Point', () => {
             .send({
                 email: "test1@example.com", password: "1234567893"
             })
-        expect(res.statusCode).toEqual(500)
+        expect(res.statusCode).toEqual(401)
     })
 })
 
