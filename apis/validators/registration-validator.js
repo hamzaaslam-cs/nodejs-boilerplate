@@ -12,6 +12,7 @@ const registrationValidator = async (req, res, next) => {
                 throw new ValidationError('Email is already in use');
             }
         }
+
         const schema = Joi.object({
             name: Joi.string().alphanum().min(3).max(30).required(),
             password: Joi.string().min(6).required(),

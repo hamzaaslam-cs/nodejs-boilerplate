@@ -6,7 +6,7 @@ Accept: application/json
 {
   "name": "hamza",
   "password": "12345678",
-  "email": "test1@example.com"
+  "email": "hamza@example.com"
 }
 
 ### Login
