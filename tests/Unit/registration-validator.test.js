@@ -1,4 +1,3 @@
-const {app} = require('../../index')
 const {registrationValidator} = require("../../apis/validators/registration-validator");
 const {ValidationError} = require("joi");
 const User = require("../../models/User");

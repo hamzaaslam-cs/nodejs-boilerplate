@@ -1,3 +1,5 @@
+const {app} = require('./index')
+
 module.exports = {
     testMatch: [
         "<rootDir>/tests/Feature/*.test.js",

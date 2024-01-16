@@ -1,4 +1,3 @@
-const {app} = require('../../index')
 const {resetValidator} = require("../../apis/validators/reset-validator");
 const {ValidationError} = require("joi");
 const request = require("supertest");
@@ -28,7 +27,7 @@ describe("Reset password validator", () => {
         };
         let res = {};
         await resetValidator(req, res, (data) => {
-            console.log(data);
+            // console.log(data);
             // expect(error).notToBeInstanceOf(ValidationError)
         });
     });
