@@ -25,9 +25,8 @@ describe("Reset password validator", () => {
                 token, password,
             },
         };
-        let res = {};
+        let res = jest.fn();
         await resetValidator(req, res, (data) => {
-            // console.log(data);
             // expect(error).notToBeInstanceOf(ValidationError)
         });
     });

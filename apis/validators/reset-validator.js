@@ -20,7 +20,6 @@ const resetValidator = async (req, res, next) => {
             token: Joi.required().external(isValidToken)
         })
 
-
         req.validated = await schema.validateAsync(req.body);
         next();
     } catch (e) {
