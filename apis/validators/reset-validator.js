@@ -16,14 +16,13 @@ const resetValidator = async (req, res, next) => {
         }
 
         const schema = Joi.object({
-            password: Joi.string().min(6).required(),
-            token: Joi.required().external(isValidToken)
+            password: Joi.string().min(6).required(), token: Joi.required().external(isValidToken)
         })
 
         req.validated = await schema.validateAsync(req.body);
         next();
     } catch (e) {
-        return res.render('alert.hbs', {layout: 'alert.hbs', message: e.message});
+        return res.render('alert', {message: e.message});
     }
 
 }

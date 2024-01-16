@@ -10,9 +10,12 @@ const app = express();
 const {engine} = require('express-handlebars');
 const cors = require('cors')
 
-app.engine('.hbs', engine({extname: '.hbs'}));
+app.engine('hbs', engine({
+    extname: 'hbs', layoutsDir: path.join(__dirname, "views"),
+    defaultLayout:null
+}));
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, "views"));
+
 
 app.use(cors({
     origin: '*', // use your actual domain name (or localhost), using * is not recommended
@@ -21,7 +24,7 @@ app.use(cors({
     credentials: true
 }))
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 
 app.use(express.json());
 
@@ -42,4 +45,4 @@ process.on('uncaughtException', error => {
 })
 
 
-module.exports= {app};
+module.exports = {app};
