@@ -9,7 +9,6 @@ const sequelize = new Sequelize(database.DATABASE_NAME, database.DATABASE_USERNA
 sequelize.authenticate().then(() => {
     console.log("Database connected successfully")
 }).catch((error) => {
-    console.log("Unable to connect to database");
     console.log(error);
 });
 
@@ -17,7 +16,6 @@ sequelize.authenticate().then(() => {
 sequelize.sync().then(() => {
     console.log("Database synced successfully")
 }).catch((error) => {
-    console.log("Unable to sync database");
     console.log(error);
 });
 

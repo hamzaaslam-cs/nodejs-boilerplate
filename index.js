@@ -1,6 +1,5 @@
 require("./utils/loadEnv");
 require("./globals");
-// const server = require("./config/server");
 const express = require("express");
 require("./providers/database-provider");
 const router = require("./router/index");
@@ -11,12 +10,8 @@ const app = express();
 const {engine} = require('express-handlebars');
 const cors = require('cors')
 
-// const port = server.SERVER_PORT;
-// const host = server.SERVER_HOST;
-
-
 app.engine('.hbs', engine({extname: '.hbs'}));
-app.set('view engine', '.hbs');
+app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, "views"));
 
 app.use(cors({
