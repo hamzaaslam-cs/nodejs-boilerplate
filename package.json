@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
+    "jest-handlebars": "^1.0.1",
     "supertest": "^6.3.3"
   }
 }

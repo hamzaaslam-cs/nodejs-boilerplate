@@ -27,9 +27,10 @@ describe("Reset password validator", () => {
             },
         };
         let res = {};
-        // await resetValidator(req, res, (error) => {
-        //     // expect(error).notToBeInstanceOf(ValidationError)
-        // });
+        await resetValidator(req, res, (data) => {
+            console.log(data);
+            // expect(error).notToBeInstanceOf(ValidationError)
+        });
     });
 
 });
