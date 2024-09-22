@@ -2,7 +2,11 @@ const {DataTypes} = require('sequelize');
 const sequelize = require("../providers/database-provider");
 
 const User = sequelize.define('User', {
-    // Model attributes are defined here
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
     name: {
         type: DataTypes.STRING,
         allowNull: false
@@ -25,4 +29,14 @@ const User = sequelize.define('User', {
     deletedAt: 'deleted_at',
 });
 
+
+
 module.exports = User;
+
+const PersonalAccessToken = require('./PersonalAccessToken');
+
+// // User hasMany Posts
+User.hasMany(PersonalAccessToken, {
+    foreignKey: 'user_id', // Foreign key in Post table
+    as: 'tokens', // Alias for easier access
+});

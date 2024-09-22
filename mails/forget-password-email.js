@@ -11,7 +11,8 @@ const sendForgotPasswordEmail = async (to, data, subject = "Forget password emai
             subject: subject,
             html: html
         };
-        transport.sendMail(mailOptions);
+       await transport.sendMail(mailOptions);
+
         return "Forget Password Email Send Successfully";
     };
 

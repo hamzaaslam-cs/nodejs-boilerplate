@@ -1,14 +1,13 @@
 const Joi = require('joi');
-const jwt = require("jsonwebtoken");
-const jwtConfig = require("../../config/jwt");
-const User = require("../../models/User");
 const {ValidationError} = require("joi");
+const {verifyForgetPasswordToken} = require("../../utils/jwtHelper");
 
 const resetValidator = async (req, res, next) => {
     try {
         const isValidToken = async (token) => {
             try {
-                const decoded = jwt.verify(token, jwtConfig.SECRET);
+
+                const decoded = verifyForgetPasswordToken(token);
                 req.body.email = decoded.email;
             } catch (error) {
                 throw new ValidationError('Invalid token');

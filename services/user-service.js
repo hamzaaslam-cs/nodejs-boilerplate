@@ -1,12 +1,11 @@
 const User = require("../models/User");
-const jwt = require('jsonwebtoken');
-const jwtConfig = require('../config/jwt');
+const PersonalAccessToken = require("../models/PersonalAccessToken");
 const bcrypt = require('bcrypt');
 const AuthError = require("../errors/AuthError");
 const {sendForgotPasswordEmail} = require('../mails')
 const {logger} = require("../utils/logger");
 const {BASE_URL} = require("../config/server");
-const {create} = require("express-handlebars");
+const {generateAccessToken, generateForgetPasswordToken, generateRefreshToken} = require("../utils/jwtHelper")
 const registerUser = async (data) => {
     const hashedPassword = await bcrypt.hash(data.password, 10);
 
@@ -14,11 +13,16 @@ const registerUser = async (data) => {
         {'name': data.name, 'email': data.email, 'password': hashedPassword}
     );
 
-    const token = jwt.sign({userId: user.id}, jwtConfig.SECRET, {
-        expiresIn: jwtConfig.EXPIRE_IN,
+    const accessToken = generateAccessToken({userId: user.id})
+    const refreshToken = generateRefreshToken({userId: user.id})
+
+    await PersonalAccessToken.create({
+        user_id: user.id,
+        access_token: accessToken,
+        refresh_token: refreshToken,
     });
 
-    return {...user.dataValues, 'token': token};
+    return {...user.dataValues, 'access_token': accessToken, 'refresh_token': refreshToken};
 };
 
 const loginUser = async (data) => {
@@ -36,11 +40,16 @@ const loginUser = async (data) => {
         throw new AuthError();
     }
 
-    const token = jwt.sign({userId: user.id}, jwtConfig.SECRET, {
-        expiresIn: jwtConfig.EXPIRE_IN,
+    const accessToken = generateAccessToken({userId: user.id})
+    const refreshToken = generateRefreshToken({userId: user.id})
+
+    await PersonalAccessToken.create({
+        user_id: user.id,
+        access_token: accessToken,
+        refresh_token: refreshToken,
     });
 
-    return {...user.dataValues, 'token': token};
+    return {...user.dataValues, 'access_token': accessToken, 'refresh_token': refreshToken};
 }
 
 const getUserDetail = async (id) => {
@@ -58,10 +67,8 @@ const getUsers = async (id) => {
 }
 
 const forgetPassword = async (email) => {
+    const token = generateForgetPasswordToken({email: email});
 
-    const token = jwt.sign({email: email}, jwtConfig.SECRET, {
-        expiresIn: jwtConfig.EXPIRE_IN,
-    });
     let data = {
         pageTitle: 'Forget Password',
         token: token,

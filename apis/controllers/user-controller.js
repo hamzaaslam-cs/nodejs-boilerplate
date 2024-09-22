@@ -5,6 +5,8 @@ const {getUserDetail,getUsers} = require('../../services/user-service');
 const userDto=require('../dtos/user-dto');
 const usersDto=require('../dtos/users-dto');
 
+const PersonalAccessToken = require('../../models/PersonalAccessToken');
+
 const find = async (req, res,next) => {
     try {
         let data = await getUserDetail(req.params.id);
@@ -25,6 +27,7 @@ const index = async (req, res,next) => {
         next(e);
     }
 };
+
 
 
 module.exports = {find,index}
