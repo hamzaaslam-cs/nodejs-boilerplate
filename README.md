@@ -35,8 +35,6 @@ DATABASE_PASSWORD="db_password"
 DATABASE_DRIVER="mysql"
 
 
-JWT_EXPIRE_IN="1d"
-
 MAIL_USER= "Your mail username"
 
 MAIL_PASS= "Your mail password"
