@@ -1,7 +1,8 @@
 
 # nodejs-boilerplate
 
-It is pre-configured nodejs project  with jest testing so develop can quickly clone and start wokring on business logic of the project.
+It is pre-configured nodejs project  with jest testing to develop quickly clone and start wokring on business logic of the project.
+
 
 
 ## Authors
@@ -99,3 +100,12 @@ To run tests:
 | :-------- | :------- | :------------------------- |
 | `password` | `string` | **Required**.|
 | `token` | `string` | **Required**.|
+
+#### Refresh Token
+
+```http
+  POST /api/auth/refresh-token/{refresh_token}
+```
+
+Pass Header with key Authorization and value {access_token}
+
